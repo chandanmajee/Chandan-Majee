@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>🎉 Happy Birthday</title>
@@ -8,65 +9,89 @@
       text-align: center;
       background-color: #fff3f3;
       padding: 50px;
-    }h1 {
-  color: #ff4081;
-}
+    }
 
-#input-area {
-  margin-top: 20px;
-}
+    h1 {
+      color: #ff4081;
+    }
 
-input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
+    #input-area {
+      margin-top: 20px;
+    }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ff4081;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  margin-left: 10px;
-  cursor: pointer;
-}
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
 
-button:hover {
-  background-color: #e73370;
-}
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
 
-#gift-box {
-  margin-top: 30px;
-  font-size: 18px;
-}
+    button:hover {
+      background-color: #e73370;
+    }
 
-.hidden {
-  display: none;
-}
+    #gift-box {
+      margin-top: 30px;
+      font-size: 18px;
+    }
 
-canvas#confetti-canvas {
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+    .hidden {
+      display: none;
+    }
 
+    canvas#confetti-canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .credit {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: #666;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
   <h1>🎉 Happy Birthday to Me 🎉</h1>
-  <p>Sirf jo Instagram pe mujhe wish karega, usko milega ek special gift! 🎁</p>  <div id="input-area">
+  <p>Sirf jo Instagram pe mujhe wish karega, usko milega ek special gift! 🎁</p>
+
+  <div id="input-area">
     <input type="text" id="insta" placeholder="@your_instagram_id" />
     <button onclick="checkGift()">Check My Gift</button>
-  </div><canvas id="confetti-canvas"></canvas>
+  </div>
 
-  <div id="gift-box" class="gift-area"></div>  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>  <script>
-    const allowedUsers = ["@chandan__majee", "@abcd", "@"];
+  <canvas id="confetti-canvas"></canvas>
+
+  <div id="gift-box" class="gift-area"></div>
+
+  <!-- ✅ Credit badge -->
+  <div class="credit">Website Created By Chandan Majee</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const allowedUsers = ["@chandanmajee", "@neha123", "@raj_verma"];
 
     function checkGift() {
       const input = document.getElementById("insta").value.trim();
@@ -115,5 +140,6 @@ canvas#confetti-canvas {
         });
       }, 250);
     }
-  </script></body>
+  </script>
+</body>
 </html>
