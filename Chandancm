@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Happy Birthday</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fff3f3;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #ff4081;
+    }
+
+    #input-area {
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    #gift-box {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    canvas#confetti-canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday to Me 🎉</h1>
+  <p>Sirf jo Instagram pe mujhe wish karega, usko milega ek special gift! 🎁</p>
+
+  <div id="input-area">
+    <input type="text" id="insta" placeholder="@your_instagram_id" />
+    <button onclick="checkGift()">Check My Gift</button>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div id="gift-box" class="gift-area"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const allowedUsers = ["@chandanmajee", "@neha123", "@raj_verma"];
+
+    function checkGift() {
+      const input = document.getElementById("insta").value.trim();
+      const giftBox = document.getElementById("gift-box");
+      const inputArea = document.getElementById("input-area");
+
+      if (allowedUsers.includes(input)) {
+        inputArea.classList.add("hidden");
+        giftBox.innerHTML = `
+          <h2>🎁 Thank You for Wishing Me!</h2>
+          <img src="https://i.ibb.co/R5mMYSG/Screenshot-2025-06-22-10-58-37-42-948cd9899890cbd5c2798760b2b95377.jpg" 
+               alt="Gift" style="max-width: 250px; border-radius: 12px;" />
+          <p>Ye lo aapka gift – ek Dairy Milk 🍫 aur mere dil se Thank You 💖</p>
+        `;
+        launchConfetti();
+      } else {
+        giftBox.innerHTML = `
+          <p style="font-size: 18px; color: #444;">
+            😢 <strong>Oops!</strong> Tumne mujhe wish nahi kiya abhi tak 🥲.<br>
+            🎉 Wish karne ke baad jab tumhe reply mil jayega, tab gift open kar paoge 😀
+          </p>
+        `;
+      }
+    }
+
+    function launchConfetti() {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+        const particleCount = 50 * (timeLeft / duration);
+        confetti({
+          particleCount,
+          origin: {
+            x: randomInRange(0.1, 0.9),
+            y: Math.random() - 0.2,
+          },
+          ...defaults
+        });
+      }, 250);
+    }
+  </script>
+</body>
+</html>
