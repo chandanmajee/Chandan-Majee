@@ -61,7 +61,7 @@
 
     .credit {
       position: fixed;
-      bottom: 10px;
+      top: 10px; /* 👈 changed from bottom to top */
       right: 10px;
       font-size: 14px;
       color: #666;
@@ -70,6 +70,7 @@
       border-radius: 8px;
       font-family: Arial, sans-serif;
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
     }
   </style>
 </head>
@@ -86,12 +87,12 @@
 
   <div id="gift-box" class="gift-area"></div>
 
-  <!-- ✅ Credit badge -->
+  <!-- ✅ Updated Credit badge -->
   <div class="credit">Designed & Developed by Chandan Majee</div>
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    const allowedUsers = ["@chandanmajee", "@", "@"];
+    const allowedUsers = ["@chandan__majee", "@", "@"];
 
     function checkGift() {
       const input = document.getElementById("insta").value.trim();
